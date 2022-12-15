@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a3bc307dab.js" crossorigin="anonymous"></script>
+
+  <title>Sarthak Bansal</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav">
+      <input type="checkbox" id="toggle-nav" class="nav__checkbox" />
+      <label for="toggle-nav" class="nav__toggle"></label>
+      <ul class="nav__list">
+        <li><a href="#home" class="nav__link" id="nav-home">HOME</a></li>
+        <li>
+          <a href="#about" class="nav__link" id="nav-about">ABOUT ME</a>
+        </li>
+        <li>
+          <a href="#skills" class="nav__link" id="nav-skills">SKILLS</a>
+        </li>
+        <li>
+          <a href="#contact" class="nav__link" id="nav-contact">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="home" class="header">
+    <p class="header__para">Welcome, Hope you are doing good !</p>
+    <h2 class="header__running">
+      I am <span class="running-text"></span><span class="cursor">|</span>
+    </h2>
+  </header>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+
+  <script>
+    VANTA.NET({
+      el: "#home",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00
+    })
+  </script>
+
+  <main>
+    <section id="about" class="about">
+      <div class="about__img-container">
+        <img src="./Me.png" alt="Sanchit Arora" />
+      </div>
+      <div class="about__right-container">
+        <div class="about__tooltip">HELLO</div>
+        <h2 class="about__name">I'm Sarthak Bansal</h2>
+        <p class="about__text">Hi , My name is Sarthak Bansal , an undergrad student at IIIT Hyderabad . I am fond of
+          Cricket and Some stand up comedy or writting skits etc </p>
+          <p class="about__text"> I am interested in work related to DeepLearning and Data Analysis using Machine Learning . This also comprises of various Computer Vision Networks ( ConvNets etc) </p>
+        <p class="about__text"> and... I love interacting with people and like Web-dev except for the boring part of
+          manual labour i.e css
+          and html </p>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2 class="section-heading">My Skills</h2>
+      <div class="skill">
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <h2 class="section-heading">
+        Let's Build Something<br />Amazing Together!
+      </h2>
+      <div id="form-result"></div>
+      <!-- <h3 class="response response__success">Form Submitted, Thanks!</h3>
+        <h3 class="response response__fail">
+          Some error occured, please try again.
+        </h3> -->
+      <div class="contact-container">
+        <form class="form" id="myForm">
+          <div class="form__field">
+            <input id="name" name="from_name" type="text" class="form__input" placeholder="Name" required />
+            <label for="name" class="form__label">Name</label>
+          </div>
+          <div class="form__field">
+            <input id="email" name="from_email" type="email" class="form__input" placeholder="Email" required />
+            <label for="email" class="form__label">Email</label>
+          </div>
+          <div class="form__field form__field--message">
+            <textarea id="message" name="message" class="form__input" placeholder="Message" required></textarea>
+            <label for="message" class="form__label">Message</label>
+          </div>
+          <div class="form__field">
+            <input type="submit" value="Send Message" class="form__submit" />
+          </div>
+        </form>
+        <ul class="contact">
+          <li>
+            <a href="mailto:sarthak.bansal@students.iiit.ac.in" class="contact__link">
+              <i class="contact__icon far fa-envelope"></i>sarthak.bansal@students.iiit.ac.in
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://github.com/sarthak395" class="contact__link">
+              <i class="contact__icon fab fa-github"></i>/sarthak395
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.linkedin.com/in/sarthak-bansal-687743141/" class="contact__link">
+              <i class="contact__icon fab fa-linkedin"></i>/sarthak
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Made with &#10084; by Sarthak</p>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script type="text/javascript">      (function () {
+    emailjs.init("LHgPYWcBApsjDJJ9J");
+  })();
+</script>
+
+<script>
+  // emailjs.sendForm("service_w6c3t0g", "template_42jxn8n", "#myForm")
+
+  document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const serviceID = "service_w6c3t0g";
+          const templateID = "template_42jxn8n";
+
+          // send the email here
+          emailjs.sendForm(serviceID, templateID,this).then(
+            (response) => {
+              console.log("SUCCESS!", response.status, response.text);
+              alert("SUCCESS!");
+            },
+            (error) => {
+              console.log("FAILED...", error);
+              alert("FAILED...", error);
+            }
+          );
+        });
+  </script>
+
+</body >
+
+</html >
